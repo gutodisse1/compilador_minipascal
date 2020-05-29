@@ -1,4 +1,6 @@
 # Compilador Minipascal
+Este projeto está desativado, não estou trabalhando e não tenho interesse em melhora-lo. A intenção aqui é unica e exclusivamente auxiliar quem está com dúvidas sobre a construção de um compilador.
+
 
 ### Objetivo
 Criar um compilador para a dada linguagem. O projeto foi dividido em 5 etapas, sendo:
