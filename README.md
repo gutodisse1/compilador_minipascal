@@ -1,5 +1,5 @@
 # Compilador Minipascal
-Este projeto está desativado, não estou trabalhando e não tenho interesse em melhora-lo. A intenção aqui é unica e exclusivamente auxiliar quem está com dúvidas sobre a construção de um compilador.
+Este projeto está desativado, logo não melhorá-lo-ei. A intenção aqui é unica e exclusivamente auxiliar quem está com dúvidas sobre a construção de um compilador.
 
 
 ### Objetivo
