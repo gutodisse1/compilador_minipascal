@@ -1,0 +1,237 @@
+/**
+ * Write a description of class Main here.
+ *
+ * @author Gustavo Marques ( @GUTODISSE ) 
+ * @version 28_02_2019
+ */
+ 
+public abstract class AST {}
+
+// =============================================================================
+public class Program extends AST {
+    public Id I;
+    public Corpo Cr;
+    
+    public Program(Id I, Corpo Cr)
+    {
+        this.I = I;
+        this.Cr = Cr;
+    }
+}
+
+// =============================================================================
+public class Id extends AST {
+    public String spelling;
+    
+    public Id(String spelling)
+    {
+        this.spelling = spelling;
+    }
+}
+
+// =============================================================================
+public class Corpo extends AST {
+    public Declaracao D;
+    public Comando C;
+    
+    public Corpo(Declaracao D, Comando C)
+    {
+        this.D = D;
+        this.C = C;
+    }
+}
+
+
+// =============================================================================
+public abstract class Declaracao extends AST {}
+
+public class Declaracao_simples extends Declaracao {
+    public Id I;
+    public Tipo T;
+    
+    public Declaracao_simples(Id I, Tipo T)
+    {
+        this.I = I;
+        this.T = T;
+    }
+}
+
+public class Declaracao_seq extends Declaracao {
+    public Declaracao D1, D2;
+    
+    public Declaracao_seq(Declaracao D1, Declaracao D2)
+    {
+        this.D1 = D1;
+        this.D2 = D2;
+    }
+}
+
+// =============================================================================
+public abstract class Tipo extends AST {}
+
+public class Tipo_simples extends Tipo {
+    public String spelling;
+    
+    public Tipo_simples(String spelling)
+    {
+        this.spelling = spelling;
+    }
+}
+
+public class Tipo_array extends Tipo {
+    public String L1, L2;
+    public Tipo T1;
+    
+    public Tipo_array(String L1, Tipo T1, String L2)
+    {
+        this.L1 = L1;
+        this.T1 = T1;
+        this.L2 = L2;
+    }
+}
+
+// =============================================================================
+public abstract class Comando extends AST {}
+
+public class Comando_VAR extends Comando {
+    public Variavel V1;
+    public Expressao E1;
+    
+    public Comando_VAR(Variavel V1, Expressao E1)
+    {
+        this.V1 = V1;
+        this.E1 = E1;
+    }
+}
+
+public class Comando_IF extends Comando {
+    public Expressao E1;
+    public Comando C1;
+    
+    public Comando_IF(Expressao E1, Comando C1)
+    {
+        this.E1 = E1;
+        this.C1 = C1;
+    }
+}
+
+public class Comando_IF_composto extends Comando {
+    public Expressao E1;
+    public Comando C1, C2;
+    
+    public Comando_IF_composto(Expressao E1, Comando C1, Comando C2)
+    {
+        this.E1 = E1;
+        this.C1 = C1;
+        this.C2 = C2;
+    }
+}
+
+public class Comando_WHILE extends Comando {
+    public Expressao E1;
+    public Comando C1;
+    
+    public Comando_WHILE(Expressao E1, Comando C1)
+    {
+        this.E1 = E1;
+        this.C1 = C1;
+    }
+}
+
+public class Comando_Seq extends Comando {
+    public Comando C1, C2;
+    
+    public Comando_Seq(Comando C1, Comando C2)
+    {
+        this.C1 = C1;
+        this.C2 = C2;
+    }
+}
+
+// =============================================================================
+public abstract class Variavel extends AST {}
+
+public class Var_simples extends Variavel {
+    public Id I;
+    public Expressao E;
+    
+    public Var_simples(Id I, Expressao E)
+    {
+        this.I = I;
+        this.E = E;
+    }
+}
+
+// =============================================================================
+public abstract class Expressao extends AST {}
+
+public class Expressao_s extends Expressao {
+    public Expressao_simples E;
+    
+    public Expressao_s(Expressao_simples E)
+    {
+        this.E = E;
+    }
+}
+
+public class Expressao_composta extends Expressao {
+    public Expressao_simples E1, E2;
+    public String OP_REL;
+    
+    public Expressao_composta(Expressao_simples E1, String OP_REL, Expressao_simples E2)
+    {
+        this.E1 = E1;
+        this.OP_REL = OP_REL;
+        this.E2 = E2;
+    }
+};
+
+// =============================================================================
+public abstract class Expressao_simples extends AST {}
+
+public class Expressao_simples_simples extends Expressao_simples {
+    public Termo T;
+    
+    public Expressao_simples_simples(Termo T)
+    {
+        this.T = T;
+    }
+};
+
+public class Expressao_simples_composta extends Expressao_simples {
+    public Termo T1, T2;
+    public String OP_AD;
+    
+    public Expressao_simples_composta(Termo T1, String OP_AD, Termo T2)
+    {
+        this.T1 = T1;
+        this.OP_AD = OP_AD;
+        this.T2 = T2;
+    }
+};
+
+// =============================================================================
+public abstract class Termo extends AST {}
+
+public class Termo_unico extends Termo {
+    public String spelling;
+    
+    public Termo_unico(String spelling)
+    {
+        this.spelling = spelling;
+    }
+};
+
+public class Termo_composto extends Termo {
+    public Termo T1, T2;
+    public String OP_MUL;
+    
+    public Termo_composto(Termo T1, String OP_MUL, Termo T2)
+    {
+        this.T1 = T1;
+        this.OP_MUL = OP_MUL;
+        this.T2 = T2;
+    }
+};
+
+

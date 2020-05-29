@@ -1,0 +1,14 @@
+	0 : 	PUSH 1
+	1 : 	LOADL 0
+	2 : 	STORE (1) 0[0]
+	3 : 	LOADA 0[0]
+	4 : 	LOADL 1
+	5 : 	CALL (0) lt[0]
+	6 : 	JUMPIF (0) 10[0]
+	7 : 	LOADL 1
+	8 : 	STORE (1) 0[0]
+	9 : 	JUMP 12[0]
+	10 : 	LOADL 0
+	11 : 	STORE (1) 0[0]
+	12 : 	POP (1) 0
+	13 : 	HALT 

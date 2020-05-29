@@ -1,0 +1,18 @@
+/**
+ * Write a description of class Main here.
+ *
+ * @author Gustavo Marques ( @GUTODISSE ) 
+ * @version 28_02_2019
+ */
+
+package minipascal.AST;
+ 
+// =============================================================================
+public class Expressao_unica extends Expressao_simples {
+    public Termo T;
+    
+    public Expressao_unica(Termo T)
+    {
+        this.T = T;
+    }
+};

@@ -1,0 +1,7 @@
+let
+    v~r y: Integer := 0
+in
+    begin
+        y := y + (1);
+        putint(y)
+    end
